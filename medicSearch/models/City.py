@@ -4,6 +4,8 @@ from medicSearch.models import *
 
 
 class City(models.Model):
+    state = models.ForeignKey(State, null=True, blank=True,
+                              related_name='State', on_delete=models.SET_NULL)
     name = models.CharField(
         max_length=255, default=None, null=True, blank=True)
     status = models.BooleanField(default=True)
